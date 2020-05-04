@@ -64,7 +64,7 @@ void LimparTela(){
 
 int main (){
 
-    char jogo[9], jogador;
+    char jogo[9], jogador, ganhador;
     int posicao_jogada, fim_do_jogo = 0;
 
     // Montagem do Tabuleiro
@@ -84,6 +84,8 @@ int main (){
     // Jogo
     if(jogador == 'X'){
 
+        ganhador = 'O';
+
         while(vencedor(jogo, fim_do_jogo) != 1){
 
             // Jogada X
@@ -99,6 +101,7 @@ int main (){
             LimparTela();
 
             if(vencedor(jogo,fim_do_jogo) == 1){
+                ganhador = 'X';
                 break;
             }
 
@@ -117,6 +120,9 @@ int main (){
     }
 
     else if (jogador == 'O'){
+
+        ganhador = 'X';
+
         while(vencedor(jogo,fim_do_jogo) != 1){
 
             // Jogada O
@@ -132,6 +138,7 @@ int main (){
             LimparTela();
 
             if(vencedor(jogo,fim_do_jogo) == 1){
+                ganhador = 'O';
                 break;
             }
 
@@ -150,6 +157,7 @@ int main (){
     }
     
     tabuleiro(jogo);
+    cout << "O Vencedor eh o Jogador " << ganhador;
 
     return 0;
 }
