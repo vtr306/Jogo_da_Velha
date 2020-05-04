@@ -68,6 +68,28 @@ void LimparTela(){
     system("clear || cls");
 }
 
+void jogadaX(char a[], int b, int c){
+    cin >> b; c++;
+    if(a[b] == 'X' || a[b] == 'O'){
+        cout << "Opcao Invalida";
+        jogadaX(a,b,c);
+    }
+    else if(a[b] != 'X' || a[b] != 'O'){
+        a[b] = 'X';
+    }
+}
+
+void jogadaO(char a[], int b, int c){
+    cin >> b; c++;
+    if(a[b] == 'X' || a[b] == 'O'){
+        cout << "Opcao Invalida";
+        jogadaX(a,b,c);
+    }
+    else if(a[b] != 'X' || a[b] != 'O'){
+        a[b] = 'O';
+    }
+}
+
 int main (){
 
     char jogo[9], jogador, ganhador;
@@ -102,9 +124,7 @@ int main (){
 
             tabuleiro(jogo);
 
-            cin >> posicao_jogada; contador++;
-
-            jogo[posicao_jogada] = 'X';
+            jogadaX(jogo,posicao_jogada,contador);
 
             vencedor(jogo,fim_do_jogo);
 
@@ -124,9 +144,7 @@ int main (){
 
             tabuleiro(jogo);
 
-            cin >> posicao_jogada; contador++;
-
-            jogo[posicao_jogada] = 'O';
+            jogadaO(jogo,posicao_jogada,contador);
 
             vencedor(jogo,fim_do_jogo);
 
@@ -144,9 +162,7 @@ int main (){
 
             tabuleiro(jogo);
 
-            cin >> posicao_jogada; contador++;
-
-            jogo[posicao_jogada] = 'O';
+            jogadaO(jogo,posicao_jogada,contador);
 
             vencedor(jogo,fim_do_jogo);
 
@@ -166,9 +182,7 @@ int main (){
 
             tabuleiro(jogo);
 
-            cin >> posicao_jogada; contador++;
-
-            jogo[posicao_jogada] = 'X';
+            jogadaX(jogo,posicao_jogada,contador);
 
             vencedor(jogo,fim_do_jogo);
 
@@ -181,7 +195,6 @@ int main (){
         cout << "O Vencedor eh o Jogador " << ganhador;
     }
     else cout << "Deu Velha";
-
 
     return 0;
 }
