@@ -65,15 +65,13 @@ void LimparTela(){
 int main (){
 
     char jogo[9], jogador, ganhador;
-    int posicao_jogada, fim_do_jogo = 0;
+    int posicao_jogada, fim_do_jogo = 0, contador = 0;
 
     // Montagem do Tabuleiro
 
     for(int i = 0; i < 9; i++){
         jogo[i] = ' ';
     }
-
-    tabuleiro(jogo);
 
     // Ordem dos jogadores
 
@@ -92,7 +90,7 @@ int main (){
 
             tabuleiro(jogo);
 
-            cin >> posicao_jogada;
+            cin >> posicao_jogada; contador++;
 
             jogo[posicao_jogada] = 'X';
 
@@ -105,11 +103,16 @@ int main (){
                 break;
             }
 
+            if(contador == 9){
+                ganhador = ' ';
+                break;
+            }
+
             // Jogada O
 
             tabuleiro(jogo);
 
-            cin >> posicao_jogada;
+            cin >> posicao_jogada; contador++;
 
             jogo[posicao_jogada] = 'O';
 
@@ -129,7 +132,7 @@ int main (){
 
             tabuleiro(jogo);
 
-            cin >> posicao_jogada;
+            cin >> posicao_jogada; contador++;
 
             jogo[posicao_jogada] = 'O';
 
@@ -142,11 +145,16 @@ int main (){
                 break;
             }
 
+            if(contador == 9){
+                ganhador = ' ';
+                break;
+            }
+
             // Jogada X
 
             tabuleiro(jogo);
 
-            cin >> posicao_jogada;
+            cin >> posicao_jogada; contador++;
 
             jogo[posicao_jogada] = 'X';
 
@@ -157,7 +165,11 @@ int main (){
     }
     
     tabuleiro(jogo);
-    cout << "O Vencedor eh o Jogador " << ganhador;
+    if(ganhador == 'X' || ganhador == 'O'){
+        cout << "O Vencedor eh o Jogador " << ganhador;
+    }
+    else cout << "Deu Velha";
+
 
     return 0;
 }
