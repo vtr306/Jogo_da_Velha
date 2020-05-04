@@ -10,6 +10,12 @@ void tabuleiro(char a[]){
     }
 }
 
+void tabmod(int a[]){
+    for(int i = 0; i < 9; i = i + 3){
+        cout << "[" << a[i] << "]" << "[" << a[i+1] << "]" << "[" << a[i+2] << "]" << endl;
+    }
+}
+
 int vencedor(char a[], int b){
 
     //Análise das Colunas
@@ -65,13 +71,19 @@ void LimparTela(){
 int main (){
 
     char jogo[9], jogador, ganhador;
-    int posicao_jogada, fim_do_jogo = 0, contador = 0;
+    int posicao_jogada, fim_do_jogo = 0, contador = 0, modelo[9];
 
     // Montagem do Tabuleiro
 
     for(int i = 0; i < 9; i++){
         jogo[i] = ' ';
     }
+
+    for(int i = 0; i < 9; i++){
+        modelo[i] = i;
+    }
+
+    tabmod(modelo);
 
     // Ordem dos jogadores
 
