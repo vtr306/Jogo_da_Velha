@@ -68,34 +68,38 @@ void LimparTela(){
     system("clear || cls");
 }
 
-void jogadaX(char a[], int b, int c){
+void jogadaX(char a[], int b){
     cin >> b;
     if(b >= 0 && b <= 8){
         if(a[b] == 'X' || a[b] == 'O'){
             cout << "Opcao Invalida" << endl;
-            jogadaX(a,b,c);
+            jogadaX(a,b);
         }
         else if(a[b] != 'X' || a[b] != 'O'){
             a[b] = 'X';
         }
-        c++;
     }
-    else jogadaX(a,b,c);
+    else{
+        cout << "Opcao Invalida" << endl;
+        jogadaX(a,b);
+    }
 }
 
-void jogadaO(char a[], int b, int c){
+void jogadaO(char a[], int b){
     cin >> b;
     if(b >= 0 && b <= 8){
-    if(a[b] == 'X' || a[b] == 'O'){
+        if(a[b] == 'X' || a[b] == 'O'){
+            cout << "Opcao Invalida" << endl;
+            jogadaX(a,b);
+        }
+        else if(a[b] != 'X' || a[b] != 'O'){
+            a[b] = 'O';
+        }
+    }
+    else{
         cout << "Opcao Invalida" << endl;
-        jogadaX(a,b,c);
+        jogadaO(a,b);
     }
-    else if(a[b] != 'X' || a[b] != 'O'){
-        a[b] = 'O';
-    }
-    c++;
-    }
-    else jogadaO(a,b,c);
 }
 
 int main (){
@@ -116,7 +120,7 @@ int main (){
     tabmod(modelo);
 
     // Ordem dos jogadores
-
+    
     cout << "Quem vai comecar? (X/O)" << endl;
     cin >> jogador;
     LimparTela();
@@ -132,7 +136,8 @@ int main (){
 
             tabuleiro(jogo);
 
-            jogadaX(jogo,posicao_jogada,contador);
+            jogadaX(jogo,posicao_jogada);
+            contador++;
 
             vencedor(jogo,fim_do_jogo);
 
@@ -152,7 +157,8 @@ int main (){
 
             tabuleiro(jogo);
 
-            jogadaO(jogo,posicao_jogada,contador);
+            jogadaO(jogo,posicao_jogada);
+            contador++;
 
             vencedor(jogo,fim_do_jogo);
 
@@ -170,7 +176,8 @@ int main (){
 
             tabuleiro(jogo);
 
-            jogadaO(jogo,posicao_jogada,contador);
+            jogadaO(jogo,posicao_jogada);
+            contador++;
 
             vencedor(jogo,fim_do_jogo);
 
@@ -190,7 +197,8 @@ int main (){
 
             tabuleiro(jogo);
 
-            jogadaX(jogo,posicao_jogada,contador);
+            jogadaX(jogo,posicao_jogada);
+            contador++;
 
             vencedor(jogo,fim_do_jogo);
 
