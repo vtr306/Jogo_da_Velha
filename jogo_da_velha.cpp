@@ -69,25 +69,33 @@ void LimparTela(){
 }
 
 void jogadaX(char a[], int b, int c){
-    cin >> b; c++;
-    if(a[b] == 'X' || a[b] == 'O'){
-        cout << "Opcao Invalida";
-        jogadaX(a,b,c);
+    cin >> b;
+    if(b >= 0 && b <= 8){
+        if(a[b] == 'X' || a[b] == 'O'){
+            cout << "Opcao Invalida" << endl;
+            jogadaX(a,b,c);
+        }
+        else if(a[b] != 'X' || a[b] != 'O'){
+            a[b] = 'X';
+        }
+        c++;
     }
-    else if(a[b] != 'X' || a[b] != 'O'){
-        a[b] = 'X';
-    }
+    else jogadaX(a,b,c);
 }
 
 void jogadaO(char a[], int b, int c){
-    cin >> b; c++;
+    cin >> b;
+    if(b >= 0 && b <= 8){
     if(a[b] == 'X' || a[b] == 'O'){
-        cout << "Opcao Invalida";
+        cout << "Opcao Invalida" << endl;
         jogadaX(a,b,c);
     }
     else if(a[b] != 'X' || a[b] != 'O'){
         a[b] = 'O';
     }
+    c++;
+    }
+    else jogadaO(a,b,c);
 }
 
 int main (){
