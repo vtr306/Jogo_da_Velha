@@ -90,7 +90,7 @@ void jogadaO(char a[], int b){
     if(b >= 0 && b <= 8){
         if(a[b] == 'X' || a[b] == 'O'){
             cout << "Opcao Invalida" << endl;
-            jogadaX(a,b);
+            jogadaO(a,b);
         }
         else if(a[b] != 'X' || a[b] != 'O'){
             a[b] = 'O';
